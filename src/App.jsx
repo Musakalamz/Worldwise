@@ -4,7 +4,6 @@ import Login from "./pages/Login";
 import Pricing from "./pages/Pricing";
 import Product from "./pages/Product";
 import PageNotFound from "./pages/PageNotFound";
-import PageNav from "./components/PageNav";
 
 function App() {
   return (
