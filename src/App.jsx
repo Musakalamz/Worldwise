@@ -43,7 +43,7 @@ function App() {
           <Route index element={<CityList />} />
           <Route path="cities" element={<CityList />} />
           <Route path="countries" element={<p>Nigeria, Ghana</p>} />
-          <Route path="form" element={<p>oya, submit</p>} />
+          {/* <Route path="form" element={<p>oya, submit</p>} /> */}
         </Route>
 
         <Route path="*" element={<PageNotFound />} />
