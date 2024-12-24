@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
+import { useCities } from "../contexts/CitiesContext";
+import { useEffect } from "react";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -11,6 +13,11 @@ const formatDate = (date) =>
 
 function City() {
   const { id } = useParams();
+  const { getCity } = useCities();
+
+  useEffect(() => {
+    getCity(id);
+  }, [id]);
 
   return <h2>City of {id}</h2>;
 }
