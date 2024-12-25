@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+const BASE_URL = "http://localhost:9000";
+
 const CitiesContext = createContext();
 
 function CitiesProvider({ children }) {
@@ -29,7 +31,7 @@ function CitiesProvider({ children }) {
   async function getCity(id) {
     try {
       setIsLoading(true);
-      const resp = await fetch(`${BASE_URL}/cities/id`);
+      const resp = await fetch(`${BASE_URL}/cities/${id}`);
       const data = await resp.json();
       console.log(data);
       setCurrentCity(data);
@@ -42,7 +44,7 @@ function CitiesProvider({ children }) {
   }
 
   return (
-    <CitiesContext.Provider value={{ cities, isLoading, getCity }}>
+    <CitiesContext.Provider value={{ cities, isLoading, currentCity, getCity }}>
       {children}
     </CitiesContext.Provider>
   );
